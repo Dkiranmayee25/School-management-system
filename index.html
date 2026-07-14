@@ -1,0 +1,206 @@
+<?php include 'header.php'; ?>
+<!DOCTYPE html>
+<div class="container">
+<html>
+<head>
+    <title>ABC Public School</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel = "stylesheet" href = "hi.css">
+    
+</head>
+
+
+<body>
+<center>
+<header class="navbar">
+    <div class="logo">ABC Public School</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+	<a href ="index1.html">Demo</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+<br />
+
+<div class="hero-section1">
+    <h1>Empowering Education for Every Child</h1>
+    <p>Discover our comprehensive school management solutions designed to streamline administration, enhance communication, and improve student engagement. Join us in transforming the educational experience.Quality schooling with values, growth, and excellence.</p>
+    <a href="contact.html" class="btn-primary">Apply Now</a>
+</div>
+<br />
+<section class="hero-section">
+  <div class="content-container">
+    <div class="text-content">
+      <h1>Streamline Your School <br> Management Effortlessly</h1><br />
+      <p>ABC offers an intuitive platform designed to help educators and administrators manage their schools efficiently. Experience seamless communication, organization, and reporting all in one place.</p>
+      
+      <form class="email-form">
+        <input type="email" for = "btn" placeholder="Enter your e-mail address" required>
+        <button type="submit" id = "btn" >Submit</button>
+      </form>
+    </div>
+    
+    <div class="illustration-content">
+      <!-- Replace with the actual ABC illustration image -->
+      <img src="img2.webp" alt="School Management Illustration">
+    </div>
+  </div>
+</section>
+<div class = "bg2">
+<div class="container">
+    <h1 class="header-title">Why Us</h1>
+
+    <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-item">
+            <div class="number-circle">1</div>
+            <h3>Streamlined Administration Processes</h3>
+            <p>ABC offers seamless tools that simplify all administrative tasks, enhancing productivity for educators and staff. Benefit from reduced paperwork, efficient scheduling, and team collaboration in one integrated platform.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-item">
+            <div class="number-circle">2</div>
+            <h3>Enhanced Communication Channels</h3>
+            <p>Our platform fosters better communication between parents, students, and teachers through real-time updates and notifications. Stay connected effortlessly to enhance engagement in the educational journey.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-item">
+            <div class="number-circle">3</div>
+            <h3>Comprehensive Data Management</h3>
+            <p>Effortlessly manage student data with secure cloud storage solutions. ABC ensures easy access to grades, attendance records & reports while maintaining top-tier security protocols for sensitive information.</p>
+        </div>
+    </div>
+
+<div class="overlay" id="overlay" onclick="closeAllCards()"></div>
+
+<h1>Explore our innovative school management features for a seamless experience.</h1>
+
+<section class="features-section">
+    <!-- Feature 1 -->
+    <div class="feature-box" onclick="expandCard(this)">
+        <button class="close-btn" onclick="event.stopPropagation(); closeAll()">Close</button>
+        <div class="image-box">
+            <img src="img3.webp" alt="Communication">
+        </div>
+        <h3>Streamlined Communication Tools</h3>
+        <div class="faq-answer">
+            <p>Enhance collaboration between teachers, students, and parents with efficient communication tools. Our platform allows instant messaging and notifications to ensure everyone stays informed and connected about important updates. Our streamlined communication tools are designed to facilitate real-time interactions between all stakeholders in the educational ecosystem. With options for messaging between teachers, students, and parents as well as automated notifications regarding class schedules or events you can ensure that essential information is conveyed efficiently across the board allowing everyone to stay on top of their responsibilities while promoting an inclusive school environment that values transparency and engagement.</p>
+        </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature-box" onclick="expandCard(this)">
+        <button class="close-btn" onclick="event.stopPropagation(); closeAll()">Close</button>
+        <div class="image-box">
+            <img src="img4.webp" alt="Management">
+        </div>
+        <h3>Comprehensive Student Management System</h3>
+        <div class="faq-answer">
+            <p>Easily track student progress, attendance, and grades in one centralized location. Our system provides insightful analytics to help educators support each student's academic journey effectively. The comprehensive student management system we offer enables schools to monitor various aspects of student performance including attendance records grades extracurricular activities along with detailed insights into individual progress over time. This feature empowers educators with vital data that helps them identify trends areas needing improvement allowing personalized interventions where necessary thereby enhancing overall educational outcomes for every learner within your institution seamlessly integrating administrative efficiency with academic excellence through user-friendly dashboards accessible anytime anywhere reducing paperwork while fostering stronger relationships among educators administrators families focusing on what truly matters teaching learning growth extraordinary education experiences tailored specifically toward all learners needs!</p>
+        </div>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature-box" onclick="expandCard(this)">
+        <button class="close-btn" onclick="event.stopPropagation(); closeAll()">Close</button>
+        <div class="image-box">
+            <img src="img5.webp" alt="Enrollment">
+        </div>
+        <h3>Efficient Enrollment Management Solutions</h3>
+        <div class="faq-answer">
+            <p>Simplify the enrollment process for new students with our user-friendly online application system. Manage applications effortlessly from submission to approval without any hassle. Our efficient enrollment management solutions are built around creating an excellent experience both for prospective students enrolling at your institution but also making it simple manageable stress-free process internally too thanks its intuitive design ease navigation throughout ensuring smooth transition into admission procedures tracking statuses communications responding quickly applicant queries keeping everything organized files readily available centralizing information minimizing redundancies thus maximizing productivity enabling staff focus more strategic initiatives rather than administrative tasks which often consume valuable time resources critical towards building positive culture welcoming atmosphere right from start all aimed achieving successful onboarding newcomers fittingly matched this community ethos multiple opportunities future contributions expected inspiring effect long-term engagement nurturing lifelong passion knowledge discovery creativity innovation ultimately shaping future leaders innovators changemakers society today tomorrow!.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const blurOverlay = document.getElementById('bgBlur');
+
+    function expandCard(card) {
+        if (card.classList.contains('expanded')) return;
+        
+        card.classList.add('expanded');
+        blurOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeAll() {
+        document.querySelectorAll('.feature-box').forEach(box => {
+            box.classList.remove('expanded');
+        });
+        blurOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; 
+    }
+</script>
+<div class="faq-container">
+  <h2>Frequently asked questions</h2><br>
+
+  <!-- Item 1 (Open by default using the 'open' attribute) -->
+  <details class="faq-item">
+    <summary class="faq-question">
+      What services does ABC provide for school management?
+
+    </summary>
+    <div class="faq-answer">
+      <p>ABC offers a comprehensive suite of tools for school management, including student enrollment, attendance tracking, grade management, and communication systems between educators and parents.</p>
+    </div>
+  </details>
+  <!-- Item 2 -->
+  <details class="faq-item">
+    <summary class="faq-question">
+      How can I sign up for ABC's services?
+      <span class="icon"></span>
+    </summary>
+    <div class="faq-answer">
+      <p>You can sign up by visiting our website and filling out the registration form. After providing your details, you will receive instructions on how to activate your account.</p>
+    </div>
+  </details>
+
+  <!-- Item 3 -->
+  <details class="faq-item">
+    <summary class="faq-question">
+      Is there a demo available for ABC's platform?
+      <span class="icon"></span>
+    </summary>
+    <div class="faq-answer">
+      <p>Yes, we offer a free demo of our platform to help you understand its features and functionalities before committing to a subscription.</p>
+    </div>
+  </details>
+
+  <!-- Item 4 -->
+  <details class="faq-item">
+    <summary class="faq-question">
+      Can ABC integrate with existing school systems?
+      <span class="icon"></span>
+    </summary>
+    <div class="faq-answer">
+      <p>Absolutely! ABC is designed to integrate seamlessly with various existing educational software solutions used in schools.</p>
+    </div>
+  </details>
+
+  <!-- Item 5 -->
+  <details class="faq-item">
+    <summary class="faq-question">
+      What support options are available if I encounter issues using the service?
+      <span class="icon"></span>
+    </summary>
+    <div class="faq-answer">
+      <p>We provide 24/7 customer support through chat, email, and phone. Our team is always ready to assist you with any issues or questions regarding our services.</p>
+    </div>
+  </details>
+</div>
+
+
+
+
+<footer>
+    © 2026 ABC Public School — All Rights Reserved
+</footer>
+<script src="js/script.js"></script></center>
+</body>
+</html>
+</div>
+<?php include 'footer.php'; ?>

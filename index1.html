@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Portal | Green Valley School</title>
+    <!-- Font Awesome for the feature icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+<style>
+    :root {
+        --bg-dark: #0f172a;       /* Professional Navy */
+        --card-bg: #ffffff;       /* Clean White */
+        --accent: #3b82f6;        /* Trust Blue */
+        --accent-glow: rgba(59, 130, 246, 0.15);
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --input-bg: #f8fafc;
+        --border: #e2e8f0;
+    }
+
+    body, html { 
+        margin: 0; padding: 0; 
+        font-family: 'Inter', 'Segoe UI', sans-serif; 
+        height: 100vh; overflow: hidden; 
+        background: #f1f5f9; 
+        color: var(--text-main);
+    }
+
+    .main-container { display: flex; height: 100vh; }
+
+    /* --- Left Side: Dynamic Navy --- */
+    .info-side {
+        flex: 1.2;
+        background: var(--bg-dark);
+        padding: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        color: white;
+    }
+
+    .school-brand h1 { 
+        font-size: 52px; margin: 0; font-weight: 800; letter-spacing: -1px; 
+    }
+    .school-brand p { font-size: 18px; color: var(--accent); margin-top: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* --- Staggered Floating Feature List --- */
+    .feature-list { list-style: none; padding: 0; margin-top: 60px; perspective: 1000px; }
+    
+    .feature-list li { 
+        margin-bottom: 30px; display: flex; align-items: center; gap: 20px; 
+        background: rgba(255, 255, 255, 0.03); padding: 25px; border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation: floating 4s ease-in-out infinite;
+    }
+    
+    .feature-list li:nth-child(2) { animation-delay: 0.5s; }
+    .feature-list li:nth-child(3) { animation-delay: 1s; }
+
+    .feature-list li:hover { 
+        transform: scale(1.05) translateX(15px); background: rgba(255, 255, 255, 0.07); 
+        border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .feature-list i { 
+        background: var(--accent); color: white;
+        padding: 15px; border-radius: 14px; 
+        font-size: 20px; width: 25px; height: 25px; 
+        display: flex; align-items: center; justify-content: center;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-list li:hover i { transform: rotate(10deg) scale(1.1); }
+
+    .feature-list h4 { margin: 0; font-size: 18px; font-weight: 700; color: white; }
+    .feature-list p { margin: 5px 0 0 0; opacity: 0.7; font-size: 14px; color: #cbd5e1; }
+
+    /* --- Right Side: Modern Minimal Portal --- */
+    .portal-side { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; }
+    
+    .login-card { 
+        background: var(--card-bg); width: 100%; max-width: 400px; 
+        padding: 45px; border-radius: 28px; 
+        border: 1px solid var(--border);
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    }
+    
+    .login-card h2 { text-align: center; color: var(--bg-dark); margin-bottom: 35px; font-weight: 800; font-size: 28px; }
+
+    .role-selector { display: flex; background: #f1f5f9; padding: 6px; border-radius: 14px; margin-bottom: 30px; }
+    .role-btn { flex: 1; border: none; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: 700; color: var(--text-muted); background: transparent; transition: 0.3s; }
+    .role-btn.active { background: var(--bg-dark); color: white; }
+
+    .input-group { margin-bottom: 25px; }
+    .input-group label { display: block; font-size: 13px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; }
+    .input-group input { 
+        width: 100%; padding: 16px; border: 1px solid var(--border); border-radius: 12px; 
+        box-sizing: border-box; outline: none; transition: 0.3s; background: var(--input-bg);
+    }
+    .input-group input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
+
+    .btn-login { 
+        width: 100%; padding: 18px; background: var(--accent); color: white; border: none; 
+        border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s;
+    }
+    .btn-login:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--accent-glow); }
+
+    .admission-box { margin-top: 40px; text-align: center; }
+    .admission-box p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+    .btn-apply { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 14px; }
+    .btn-apply:hover { text-decoration: underline; }
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 1024px) { .info-side { display: none; } }
+</style>
+
+</head>
+<body>
+
+<div class="main-container">
+    <div class="info-side">
+        <div class="school-brand">
+            <h1>Green Valley School</h1>
+            <p>Knowledge | Discipline | Excellence</p>
+            <div class="tagline">Shaping bright futures since 2005.</div>
+        </div>
+        
+        <ul class="feature-list">
+            <li><i class="fas fa-user-tie"></i><div><h4>Qualified Teachers</h4><p>Highly experienced and dedicated academic staff.</p></div></li>
+            <li><i class="fas fa-atom"></i><div><h4>Modern Infrastructure</h4><p>Robotics, science, and high-speed computer labs.</p></div></li>
+            <li><i class="fas fa-swimmer"></i><div><h4>Sports & Arts</h4><p>Comprehensive training for physical and creative growth.</p></div></li>
+        </ul>
+    </div>
+
+    <div class="portal-side">
+        <div class="login-card">
+            <h2>Access Portal</h2>
+            
+            <form action="login.php" method="POST">
+                <div class="role-selector">
+                    <button type="button" class="role-btn" onclick="setRole(this, 'admin')">Admin</button>
+                    <button type="button" class="role-btn" onclick="setRole(this, 'teacher')">Teacher</button>
+                    <button type="button" class="role-btn active" onclick="setRole(this, 'student')">Student</button>
+                </div>
+
+                <input type="hidden" name="user_type" id="user_type_hidden" value="student">
+
+                <div class="input-group">
+                    <label id="user-label">Student ID / Email</label>
+                    <input type="text" name="username" placeholder="Enter ID" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-login">Secure Login</button>
+            </form>
+        </div>
+
+        <div class="admission-box">
+            <p>New to Green Valley School?</p>
+            <a href="apply.php" class="btn-apply">Apply Now for Admission</a>
+        </div>
+    </div>
+</div>
+
+<script>
+   function setRole(btn, role) {
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    document.getElementById('user_type_hidden').value = role; 
+    
+    const displayRole = role.charAt(0).toUpperCase() + role.slice(1);
+    document.getElementById('user-label').innerText = displayRole + ' ID / Email';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?php
+// Silent connection
+ob_start();
+include("connect1.php");
+ob_end_clean();
+
+$id = $_GET['id'];
+$msg = "";
+
+// Handle the Save Button
+if(isset($_POST['update_all'])){
+    $name = $_POST['name'];
+    $marks = $_POST['marks'];
+    $fees = $_POST['fees'];
+
+    $sql = "UPDATE students SET name='$name', marks='$marks', fees_paid='$fees' WHERE id='$id'";
+    if(mysqli_query($conn, $sql)){
+        $msg = "<div class='success'>Student records updated!</div>";
+    }
+}
+
+// Fetch the student
+$res = mysqli_query($conn, "SELECT * FROM students WHERE id='$id'");
+$row = mysqli_fetch_assoc($res);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Manage Student</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .manage-box { max-width: 450px; margin: 40px auto; padding: 25px; background: #fff; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .info-group { margin-bottom: 15px; text-align: left; }
+        .info-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #444; }
+        .info-group input { width: 100%; padding: 10px 15px; border: 2px solid #eee; border-radius: 25px; outline: none; }
+        .info-group input:focus { border-color: #007bff; }
+        .btn-save { width: 100%; background: #007bff; color: #fff; padding: 12px; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .success { color: #155724; background: #d4edda; padding: 10px; border-radius: 20px; margin-bottom: 15px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="manage-box">
+    <h2>Student Details</h2>
+    <?php echo $msg; ?>
+    
+    <form method="POST">
+        <div class="info-group">
+            <label>Full Name</label>
+            <input type="text" name="name" value="<?php echo $row['name']; ?>">
+        </div>
+        
+        <p><strong>Class:</strong> <?php echo $row['class']; ?> | <strong>Roll No:</strong> <?php echo $row['rollno']; ?></p>
+        
+        <div class="info-group">
+            <label>Exam Marks</label>
+            <input type="number" name="marks" value="<?php echo $row['marks']; ?>">
+        </div>
+
+        <div class="info-group">
+            <label>Fees Paid (INR)</label>
+            <input type="number" step="0.01" name="fees" value="<?php echo $row['fees_paid']; ?>">
+        </div>
+
+        <button name="update_all" class="btn-save">Update Records</button>
+    </form>
+    <a href="view_students.php" style="display:block; margin-top:15px; color:#999; text-decoration:none; text-align:center;">← Back to List</a>
+</div>
+
+</body>
+</html>

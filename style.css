@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background-color: white;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+}v.hero-section {
+  display: flex;
+  align-items: center;
+  padding: 80px 10%;
+  font-family: 'Georgia', serif; /* Matching the serif font in the image */
+  background-color: #fff;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.text-content h1 {
+  font-size: 48px;
+  color: #1a2a47; /* Dark navy color from the image */
+  line-height: 1.2;
+}
+
+.text-content p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.email-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.email-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.email-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff; /* A shade of blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+white-space :nowrap;
+}
+
+.email-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.illustration-content {
+  flex: 1;
+  text-align: right;
+}
+
+.illustration-content img {
+  max-width: 100%;
+}
+
+.bg2{
+background-color:#F8F9FA;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+}
+.hero-section1 {
+    width: 70%;
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)),
+                url("images/ph1.jpg") center/cover no-repeat;
+opacity:0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+.btn-primary {
+    background: #1abc9c;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+   .features-section {
+            display: flex;
+            gap: 40px; /* Space between columns */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+     .feature-box {
+            flex: 1; /* Makes all columns equal width */
+            display: flex;
+            flex-direction: column;
+        }
+ .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .feature-item {
+            flex: 1;
+        }
+
+        .number-circle {
+            width: 30px;
+            height: 30px;
+            background-color: #f0f4ff;
+            color: #5c7cfa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+
+.contact-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+form button {
+    background: #1abc9c;
+    color: #fff;
+    padding: 12px;
+    border: none;
+}
+body { font-family: sans-serif; color: #333; line-height: 1.6; }
+
+.faq-container { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+
+h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+/* Container and Heading */
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+/* Base Details Styling */
+details {
+  border-bottom: 1px solid #e5e7eb; /* Subtle divider line */
+}
+
+/* The Clickable Header */
+summary {
+  list-style: none; /* Hides default triangle in most browsers */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 400;
+  outline: none;
+}
+
+/* Hides default triangle in Safari */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom Icon (Chevron) */
+.icon::after {
+  content: '\2304'; /* Unicode for chevron down */
+  font-size: 1.5rem;
+  color: #666;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Rotate icon when the item is open */
+details[open] .icon::after {
+  transform: rotate(180deg);
+}
+
+/* The Answer Text */
+.faq-answer {
+  padding-bottom: 24px;
+  color: #6b7280;
+  line-height: 1.625;
+  font-size: 1rem;
+  /* Smooth fade-in for the text */
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover effect on question */
+summary:hover {
+  color: #111;
+}
+.about {
+  padding: 80px 20px;
+  background-color: #f9fafc;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.about h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #0a3d62;
+}
+.about h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #0a3d60;
+}
+.about p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

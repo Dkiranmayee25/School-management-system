@@ -1,0 +1,1159 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* REMOVE <center> EFFECT */
+center {
+  display: block;
+  text-align: unset;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  font-weight: 500;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  bottom: -4px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO SECTION 1
+========================= */
+.hero-section1 {
+  text-align: center;
+  padding: 80px 8%;
+}
+
+.hero-section1 h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 20px;
+}
+
+.hero-section1 p {
+  max-width: 700px;
+  margin: auto;
+  color: #cbd5e1;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 35px;
+  border-radius: 50px;
+  background: #38bdf8;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+}
+
+/* =========================
+   HERO SECTION 2 (GRID)
+========================= */
+.hero-section {
+  padding: 80px 8%;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+}
+
+.text-content p {
+  color: #cbd5e1;
+  margin-top: 10px;
+}
+
+.email-form {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.email-form input {
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
+
+.email-form button {
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  background: #38bdf8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.illustration-content img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+/* =========================
+   GLASS CONTAINER
+========================= */
+.bg2 {
+  padding: 80px 8%;
+}
+
+.container {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   FEATURES GRID
+========================= */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-item {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.number-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #38bdf8;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   FEATURE BOXES
+========================= 
+/* --- Features Section Layout --- */
+.features-section {
+    display: grid;
+    /* Forces 3 columns on desktop, 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* --- The Feature Card --- */
+.feature-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    cursor: pointer;
+    text-align: center;
+    height: 300px; /* Uniform height for the grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect for the Grid Tiles */
+.feature-box:not(.expanded):hover {
+    transform: translateY(-12px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 242, 255, 0.15);
+}
+
+.feature-box h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+.feature-box:hover h3 {
+    color: var(--accent);
+}
+
+.image-box img {
+    width: 80px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+}
+
+/* --- Elaborate Expanded State --- */
+.feature-box.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vh;
+    z-index: 2000;
+    padding: 60px;
+    background: #1a1d23;
+    display: block; /* Switch to block for content flow */
+    overflow-y: auto;
+    text-align: left;
+    cursor: default;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.9);
+}
+
+/* Visibility of content */
+.faq-answer {
+    display: none;
+    margin-top: 30px;
+    line-height: 1.8;
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.feature-box.expanded .faq-answer {
+    display: block;
+}
+
+.feature-box.expanded .image-box img {
+    width: 100px;
+    float: left; /* Text wraps around image in expanded view */
+    margin-right: 30px;
+}
+
+/* --- Plain Text Close Trigger --- */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.feature-box.expanded .close-btn {
+    display: block;
+}
+
+/* --- Backdrop Blur --- */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1999;
+}
+.overlay.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  margin-top: 30px;
+  /*display: grid;
+  gap: 30px;
+  margin-top: 40px;*/
+}
+
+.feature-box {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}*/
+
+      /* 1. THE SIDE-BY-SIDE GRID LOGIC */
+    .features-section {  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  margin-top: 30px;
+        /*display: grid;
+        /* Default: 1 column for mobile */
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;*/
+    }
+
+    /* Tablet and Desktop: Forces them SIDE-BY-SIDE */
+    @media (min-width: 768px) {
+        .features-section {
+            grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
+        }
+    }
+
+    /* 2. CARD INITIAL STATE (Only Image & Heading) */
+    .feature-box {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        height: 280px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .feature-box:hover {
+        transform: translateY(-10px);
+        background: #363c4a;
+    }
+
+    .image-box img {
+        width: 70px;
+        margin-bottom: 20px;
+    }
+
+    /* 3. HIDDEN CONTENT */
+    .faq-answer {
+        display: none; 
+        margin-top: 30px;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    /* 4. EXPANDED STATE (The Elaborate View) */
+    .feature-box.expanded {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85vw;
+        height: 85vh;
+        z-index: 1000;
+        padding: 60px;
+        cursor: default;
+        overflow-y: auto;
+        display: block; 
+        background: #1e222a;
+        box-shadow: 0 0 100px rgba(0,0,0,0.9);
+    }
+
+    .feature-box.expanded .faq-answer {
+        display: block;
+    }
+
+    /* Close Button */
+  /* Change the close button styling here */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    
+    /* Plain Text Styling */
+    background: none;      /* Removes the button shape */
+    border: none;          /* Removes the border */
+    color: #ffd700;        /* Change this to your preferred text color */
+    
+    font-size: 1.5rem;     /* Makes the 'X' visible */
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    z-index: 1002;
+}
+
+.close-btn:hover {
+    opacity: 0.7;          /* Subtle fade on hover */
+}
+
+/* Ensure it only shows when the card is expanded */
+.feature-box.is-expanded .close-btn { 
+    display: block; 
+}
+
+
+
+    .feature-box.expanded .close-btn { display: block; }
+
+    /* Dark Blur Overlay */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+    }
+    .overlay.active { display: block; }*/
+/* =========================
+   FAQ
+========================= 
+.faq-container {
+  padding: 80px 8%;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.faq-answer {
+  padding: 15px;
+  color: #cbd5e1;
+}*/
+/* --- FAQ Container --- */
+.faq-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.faq-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 40px;
+}
+
+/* --- FAQ Items --- */
+.faq-item {
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.faq-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* --- The Question (Summary) --- */
+.faq-question {
+    padding: 20px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Removes default arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* Remove default arrow in Chrome/Safari */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+/* Change question color when open */
+.faq-item[open] .faq-question {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Icon (Plus sign) */
+.faq-question::after {
+    content: '';
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when open */
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg); /* Turns + into x */
+}
+/* 1. Ensure FAQ items can expand to show text */
+.faq-item {
+    height: auto !important; /* Overrides the fixed height from the feature boxes */
+    display: block !important; /* Overrides the flex centering */
+    max-height: 100%; 
+}
+
+/* 2. Style the summary to act as the clickable header */
+.faq-question {
+    display: flex !important; /* Keeps the question and icon side-by-side */
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+}
+
+/* 3. Make sure the answer is visible when the tag is 'open' */
+.faq-item[open] .faq-answer {
+    display: block;
+    padding: 0 20px 20px 20px;
+    opacity: 1;
+}
+
+/* 4. Hide the answer when closed */
+.faq-item:not([open]) .faq-answer {
+    display: none;
+}
+/* 1. Remove the default browser arrow */
+.faq-question {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-question::-webkit-details-marker { display: none; }
+
+/* 2. Create the Custom Drop Down Arrow */
+.faq-question::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    
+    /* Creates the arrow shape using borders */
+    border-right: 2.5px solid var(--accent);
+    border-bottom: 2.5px solid var(--accent);
+    
+    /* Starting position (pointing down) */
+    transform: rotate(45deg);
+    
+    /* Smooth "bouncy" transition */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    
+    margin-right: 10px;
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+/* 3. The "Open" State Animation */
+.faq-item[open] .faq-question::after {
+    /* Spins 180 degrees to point up */
+    transform: rotate(-135deg);
+    
+    /* Brightens the glow when open */
+    border-color: #ffffff;
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+/* 4. Optional: Hover pulse */
+.faq-item:hover .faq-question::after {
+    transform: rotate(45deg) scale(1.2);
+}
+
+.faq-item[open]:hover .faq-question::after {
+    transform: rotate(-135deg) scale(1.2);
+}
+
+
+/* --- The Answer --- */
+.faq-answer {
+    padding: 20px 25px;
+    line-height: 1.6;
+    color: #94a3b8;
+    background: rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.4s ease-out;
+}
+
+/* Smooth fade-in animation */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.7;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .email-form {
+    flex-direction: column;
+  }
+
+  .email-form input {
+    width: 100%;
+  }
+}
+
+/* Container for the three management modules */
+.sms-grid-container {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  /* Default: stack cards vertically for mobile */
+  grid-template-columns: 1fr;
+}
+
+/* Three equal columns for desktop (screens wider than 768px) */
+@media (min-width: 768px) {
+  .sms-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual Card Styling */
+.management-card {
+  background-color: #2c313c; /* Matches the dark theme in your image */
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.management-card:hover {
+  transform: translateY(-5px); /* Adds a subtle interactive lift */
+}
+
+/* Responsive Image/Icon Styling */
+.card-icon {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+/*about*/
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 60px 8%;
+    background: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* --- Inline Email Form --- */
+.email-form {
+    display: flex;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 8px;
+    border-radius: 15px;
+    border: 1px solid #334155;
+    max-width: 450px;
+}
+
+.email-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px;
+    color: white;
+    outline: none;
+}
+
+.email-form button {
+    padding: 12px 25px;
+    margin-top: 0; /* Override previous margin */
+}
+
+.illustration-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.illustration-content img {
+    width: 100%;
+    max-width: 500px;
+    filter: drop-shadow(0 0 20px var(--accent-glow));
+    animation: float 4s ease-in-out infinite;
+}
+
+/* --- About Section --- */
+.about {
+    padding: 100px 8%;
+    background: #13151a;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.about-container h2 {
+    color: var(--accent);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+/* --- Mission & Vision Boxes --- */
+.mission-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mv-box {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border-bottom: 4px solid var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.mv-box:hover {
+    transform: translateY(-10px);
+    background: #232832;
+}
+
+.mv-box h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* --- Animations --- */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 900px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .email-form {
+        margin: 0 auto;
+    }
+    .text-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/*Contact.html*/
+/* --- Global Styles --- */
+:root {
+    --bg-dark: #121418;
+    --card-bg: #2c313c;
+    --accent: #ffd700;
+    --text: #ffffff;
+    --input-bg: #1e222a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+form {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Inputs & Textarea --- */
+input, textarea {
+    background: var(--input-bg);
+    border: 1px solid #3d4452;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+textarea {
+    height: 150px;
+    resize: none; /* Keeps the look clean */
+}
+
+/* --- Submit Button --- */
+button {
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--bg-dark);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    form {
+        padding: 25px;
+    }
+}
+/* --- Global Styles --- 
+
+:root {
+    --bg-dark: #121418;
+    --card-bg: #2c313c;
+    --accent: #ffd700;
+    --text: #ffffff;
+    --input-bg: #1e222a;
+}
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--card-bg);
+    border-bottom: 2px solid var(--accent); /* Visible border */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--accent); /* Make part of the logo glow */
+}
+
+nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--accent); /* Now clearly visible */
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+form {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(0, 242, 255, 0.2); /* Subtle glow border */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Inputs --- */
+input, textarea {
+    background: var(--input-bg);
+    border: 1px solid #334155;
+    padding: 16px;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* --- Submit Button --- */
+button {
+    background-color: var(--accent);
+    color: #000; /* Dark text on bright background for readability */
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- Plain Text Close (from previous steps) --- */
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--accent); /* High visibility X */
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+}
+*/

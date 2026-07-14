@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Mark Attendance</h2>
+
+<form action="attendance.php" method="POST">
+    <label>Date:</label>
+    <input type="date" name="date" required><br><br>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Student ID</th>
+            <th>Status</th>
+        </tr>
+
+        <!-- Manually entering student IDs (simple version) -->
+        <tr>
+            <td><input type="number" name="student_id[]" required></td>
+            <td>
+                <select name="status[]">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="number" name="student_id[]" required></td>
+            <td>
+                <select name="status[]">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+            </td>
+        </tr>
+<br>
+    </table>
+
+    <br><br>
+    <button type="submit">Save Attendance</button>
+</form>
+
+<br>
+<a href="attendance.php">View Attendance Records</a>
+
+</body>
+</html>
